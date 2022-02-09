@@ -1,8 +1,6 @@
-package com.byamada.strategies;
+package com.byamada.strategies.model;
 
-import org.springframework.stereotype.Component;
-
-public class Motorcycle extends TransportMean{
+public class Motorcycle extends AbstractTransportMean {
 
     private boolean hasCargo;
 

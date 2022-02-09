@@ -1,14 +1,17 @@
-package com.byamada.strategies;
+package com.byamada.strategies.strategy.impl;
 
+import com.byamada.strategies.model.AbstractTransportMean;
+import com.byamada.strategies.model.Vehicle;
+import com.byamada.strategies.strategy.TransportConstructStrategy;
 import org.springframework.stereotype.Component;
 
 @Component
 public class VehicleConstructStrategy implements TransportConstructStrategy {
 
-    TransportMean transportMean;
+    AbstractTransportMean transportMean;
 
     @Override
-    public boolean dosApply(TransportMean transportMean) {
+    public boolean dosApply(AbstractTransportMean transportMean) {
         if(transportMean instanceof Vehicle) {
             return true;
         }
@@ -16,7 +19,7 @@ public class VehicleConstructStrategy implements TransportConstructStrategy {
     }
 
     @Override
-    public TransportMean build(TransportMean transportMean) {
+    public AbstractTransportMean build(AbstractTransportMean transportMean) {
         this.transportMean = transportMean;
         transportMean.buildTransport();
         return this.transportMean;

@@ -1,9 +1,9 @@
 package com.byamada.strategies.service;
 
-import com.byamada.strategies.Motorcycle;
-import com.byamada.strategies.TransportConstructStrategy;
-import com.byamada.strategies.TransportMean;
-import com.byamada.strategies.Vehicle;
+import com.byamada.strategies.model.Motorcycle;
+import com.byamada.strategies.strategy.TransportConstructStrategy;
+import com.byamada.strategies.model.AbstractTransportMean;
+import com.byamada.strategies.model.Vehicle;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,24 +17,24 @@ public class TransportService {
     private final List<TransportConstructStrategy> strategies;
 
     public void execute() {
-        List<TransportMean> transportMeans;
+        List<AbstractTransportMean> transportMeans;
 
-        TransportMean vectra = new Vehicle("Vectra","1.8",4);
-        TransportMean celta = new Vehicle("Celta","1.0",2);
-        TransportMean corsa = new Vehicle("Corsa","1.0",2);
+        AbstractTransportMean vectra = new Vehicle("Vectra","1.8",4);
+        AbstractTransportMean celta = new Vehicle("Celta","1.0",2);
+        AbstractTransportMean corsa = new Vehicle("Corsa","1.0",2);
 
-        TransportMean cg = new Motorcycle("cg","100",false);
-        TransportMean titam = new Motorcycle("Titan","150",false);
+        AbstractTransportMean cg = new Motorcycle("cg","100",false);
+        AbstractTransportMean titam = new Motorcycle("Titan","150",false);
 
-        TransportMean civic = new Vehicle("Civic","2.0",4);
-        TransportMean fusion = new Vehicle("Fusion", "3.0",4);
+        AbstractTransportMean civic = new Vehicle("Civic","2.0",4);
+        AbstractTransportMean fusion = new Vehicle("Fusion", "3.0",4);
 
-        TransportMean falcon = new Motorcycle("Falcon","300",true);
-        TransportMean hornet = new Motorcycle("Hotnet","500",false);
+        AbstractTransportMean falcon = new Motorcycle("Falcon","300",true);
+        AbstractTransportMean hornet = new Motorcycle("Hotnet","500",false);
 
         transportMeans = Arrays.asList(vectra,celta,corsa,cg,titam,civic,fusion,falcon,hornet);
 
-        for(TransportMean tm : transportMeans) {
+        for(AbstractTransportMean tm : transportMeans) {
             for (TransportConstructStrategy strategy : strategies) {
                 if(strategy.dosApply(tm)) {
                     System.out.println("");

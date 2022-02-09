@@ -1,15 +1,15 @@
-package com.byamada.strategies;
+package com.byamada.strategies.model;
 
-public abstract class TransportMean {
+public abstract class AbstractTransportMean {
 
     private String name;
     private String motor;
     private int qtyWheels;
     private int speed;
 
-    abstract void  buildTransport();
-    abstract String start();
-    abstract String stop();
+    public abstract void  buildTransport();
+    public abstract String start();
+    public abstract String stop();
 
     public String changeSpeed(int speed) {
         setSpeed(speed);

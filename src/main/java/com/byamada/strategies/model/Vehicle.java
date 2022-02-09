@@ -1,8 +1,6 @@
-package com.byamada.strategies;
+package com.byamada.strategies.model;
 
-import org.springframework.stereotype.Component;
-
-public class Vehicle extends TransportMean{
+public class Vehicle extends AbstractTransportMean {
 
     private int qtyDoors;
 
